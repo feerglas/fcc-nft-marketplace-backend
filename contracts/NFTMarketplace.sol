@@ -49,6 +49,10 @@ contract NFTMarketplace is ReentrancyGuard {
     uint256 indexed tokenId
   );
 
+  ////////////////////////////////////
+  // Variables                      //
+  ////////////////////////////////////
+
   // NFT contract address -> NFT token ID -> Listing
   mapping(address => mapping(uint256 => Listing)) private s_listings;
 
