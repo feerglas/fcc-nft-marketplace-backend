@@ -27,4 +27,4 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
   console.log('####### end NftMarketplace #######');
 };
 
-module.exports.tags = ['all', 'nftMarketplace', 'main'];
+module.exports.tags = ['all', 'nftmarketplace', 'main'];
