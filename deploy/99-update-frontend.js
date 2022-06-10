@@ -3,6 +3,22 @@ const fs = require('fs');
 
 const frontendContractsFile =
   '../fcc-nft-marketplace-frontend-moralis/constants/networkMapping.json';
+const frontendAbiLocation =
+  '../fcc-nft-marketplace-frontend-moralis/constants/';
+
+async function updateAbi() {
+  const nftMarketplace = await ethers.getContract('NFTMarketplace');
+  fs.writeFileSync(
+    `${frontendAbiLocation}NFTMarketplace.json`,
+    nftMarketplace.interface.format(ethers.utils.FormatTypes.json)
+  );
+
+  const basicNft = await ethers.getContract('BasicNft');
+  fs.writeFileSync(
+    `${frontendAbiLocation}BasicNft.json`,
+    basicNft.interface.format(ethers.utils.FormatTypes.json)
+  );
+}
 
 async function updateContractAddress() {
   const nftMarketplace = await ethers.getContract('NFTMarketplace');
@@ -31,6 +47,7 @@ module.exports = async function () {
     console.log('--->>> updating frontend');
 
     await updateContractAddress();
+    await updateAbi();
   }
 };
 
