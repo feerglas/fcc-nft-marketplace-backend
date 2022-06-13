@@ -26,7 +26,7 @@ async function mintAndList() {
   console.log('--->>> Listed Nft...');
 
   if (network.config.chainId == '31337') {
-    await moveBlocks(2, (sleepAmount = 1000));
+    await moveBlocks(1, (sleepAmount = 1000));
   }
 }
 
